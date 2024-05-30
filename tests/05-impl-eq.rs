@@ -1,7 +1,7 @@
 use structified_enum::structify;
 
 #[structify]
-#[derive(PartialEq, Eq, Debug)]
+#[derive(Debug)]
 enum Foo {
     A,
     B,
@@ -13,6 +13,11 @@ fn test_pattern_match() {
     assert!(matches!(Foo::B, Foo::B));
     assert!(!matches!(Foo::A, Foo::B));
     assert!(!matches!(Foo::new(3), Foo::A));
+    assert!(matches!(Foo::try_from("A"), Ok(Foo::A)));
+    assert!(matches!(Foo::try_from("B"), Ok(Foo::B)));
+    assert!(Foo::try_from("C").is_err());
+    let aa: String = Foo::A.try_into().unwrap();
+    assert_eq!(aa, "A".to_string());
 }
 
 #[test]

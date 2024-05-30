@@ -79,29 +79,29 @@ enum I128Repr {
 
 const _: i128 = I128Repr::A.value();
 
-#[structify]
-#[repr(u128)]
-enum U128Repr {
-    A,
-}
+// #[structify]
+// #[repr(u128)]
+// enum U128Repr {
+//     A,
+// }
 
-const _: u128 = U128Repr::A.value();
+// const _: u128 = U128Repr::A.value();
 
-#[structify]
-#[repr(isize)]
-enum IsizeRepr {
-    A,
-}
+// #[structify]
+// #[repr(isize)]
+// enum IsizeRepr {
+//     A,
+// }
 
-const _: isize = IsizeRepr::A.value();
+// const _: isize = IsizeRepr::A.value();
 
-#[structify]
-#[repr(usize)]
-enum UsizeRepr {
-    A,
-}
+// #[structify]
+// #[repr(usize)]
+// enum UsizeRepr {
+//     A,
+// }
 
-const _: usize = UsizeRepr::A.value();
+// const _: usize = UsizeRepr::A.value();
 
 #[structify]
 #[repr(C, i32)]

@@ -4,6 +4,12 @@ error: conflicting representation hints
 4 | #[repr(i32, i64)]
   |             ^^^
 
+error: unsupported expression. It only supports integer literal
+  --> tests/failed/01-repr-failed.rs:17:23
+   |
+17 | enum UnsizeRepr { A = -1 }
+   |                       ^
+
 error[E0692]: transparent struct cannot have other repr hints
  --> tests/failed/01-repr-failed.rs:8:8
   |
@@ -15,14 +21,3 @@ error[E0692]: transparent struct cannot have other repr hints
    |
 12 | #[repr(transparent, transparent)]
    |        ^^^^^^^^^^^  ^^^^^^^^^^^
-
-error[E0600]: cannot apply unary operator `-` to type `u64`
-  --> tests/failed/01-repr-failed.rs:17:23
-   |
-17 | enum UnsizeRepr { A = -1 }
-   |                       ^^
-   |                       |
-   |                       cannot apply unary operator `-`
-   |                       help: you may have meant the maximum value of `u64`: `u64::MAX`
-   |
-   = note: unsigned values cannot be negated

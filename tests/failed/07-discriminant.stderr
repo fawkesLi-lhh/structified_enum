@@ -10,3 +10,19 @@ error[E0081]: discriminant value `2` assigned more than once
 7 |     C,
 8 |     D,
   |     - `2` assigned here
+
+warning: unreachable pattern
+ --> tests/failed/07-discriminant.rs:5:5
+  |
+5 |     A = 2,
+  |     ^
+  |
+  = note: `#[warn(unreachable_patterns)]` on by default
+
+warning: unreachable pattern
+ --> tests/failed/07-discriminant.rs:4:6
+  |
+4 |   enum Foo {
+  |  ______^
+5 | |     A = 2,
+  | |_____^

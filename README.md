@@ -11,6 +11,7 @@ use structified_enum::structify;
 #[repr(u8)]
 #[derive(Copy, Clone)]
 enum Foo {
+    #[msg("enmu A")]
     A = 0,
     B,
     C,
@@ -37,6 +38,13 @@ impl Foo {
     // like `Foo::A as u8`
     pub fn value(self) -> u8 {
         self.0
+    }
+
+    pub const fn msg(&self) -> &'static str {
+        match self.0 {
+            0 => "enmu A",
+            _ => "unknown",
+        }
     }
 }
 ```
